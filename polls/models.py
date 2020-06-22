@@ -1,56 +1,83 @@
 """
-创建学生信息表模型
+backend model by Louis
 """
 from django.db import models
-
 
 class User(models.Model):
     # userid
     UserId = models.IntegerField('UserId', primary_key=True)
+    # username
+    UserName = models.CharField('UserName', unique=True,max_length=15)
     # password
     Password = models.CharField('Password', null=False, max_length=15)
     # createtime set the time
     CreateTime = models.DateTimeField(auto_now=True)
 
+    # change the defalut name of the table
     # if not set,the name will be 'database_tablename'
     class Meta:
         db_table = 'User'
 
-
 class Book(models.Model):
-    # table book attributes
+    # Bookid
     BkId = models.IntegerField('Bkid', primary_key=True)
+    # Book Title(name)
     BkTitle = models.CharField('BkTitle', max_length=15)
+    # Book Author(s)
     BkAuthor = models.CharField('BkAuthor', max_length=15)
+    # Book Publisher
     BkPublisher = models.CharField('BkPublisher', max_length=15)
+    # Book publication date
     BkPubDate = models.CharField('BkPubDate', max_length=8)
+    # Book category
     Category = models.CharField('Category', max_length=15)
-    Rating = models.CharField('Rating', null=True, max_length=15)
+    # rating is out of file but can have 2 decimals
+    Rating = models.DecimalField('Rating', null=True, max_digits=4, decimal_places=2)
+    # The total review number
     ReviewNum = models.IntegerField('ReviewField', null=True)
 
+    # change the defalut name of the table
     class Meta:
         db_table = 'Book'
 
-#
-# """
-# 学生社团信息表
-# """
-# class studentUnion(models.Model):
-#     # 自增主键, 这里不能设置default属性，负责执行save的时候就不会新增而是修改元素
-#     id = models.IntegerField(primary_key=True)
-#     # 社团名称
-#     unionName = models.CharField('社团名称', max_length=20)
-#     # 社团人数
-#     unionNum = models.IntegerField('人数', default=0)
-#     # 社团负责人 关联Student的主键 即studentNum学号 一对一的关系,on__delete 属性在django2.0之后为必填属性后面会介绍
-#     unionRoot = models.OneToOneField(Student, on_delete=models.CASCADE)
-#
-#     class Meta:
-#         db_table = 'student_union'
-#
-#
-# """
-# OneToOneField： 一对一
-# ForeignKey: 一对多
-# ManyToManyField： 多对多(没有ondelete 属性)
-# """
+class Collection(models.Model):
+    # collectionId
+    CoId = models.IntegerField('CoId', primary_key=True)
+    # collection Name set by the owner
+    CoName = models.CharField('CoName', max_length=15)
+    # owner --foreign key of user
+    CoOwner = models.ForeignKey('User', on_delete=models.CASCADE)
+    # createtime --won't change after set
+    CoCreateDate = models.DateTimeField(auto_now_add=True)
+    # updatedate --Everytime being update the time will change
+    CoUpdateDate = models.DateTimeField(auto_now=True)
+
+    # change the defalut name of the table
+    class Meta:
+        db_table = 'Collection'
+
+class Review(models.Model):
+    # review id
+    ReviewId = models.IntegerField('ReviewId', primary_key=True)
+    # book id --foreign key of table 'Book'
+    BkId = models.ForeignKey('Book', on_delete=models.CASCADE)
+    # user id --foreign key of table 'User'
+    UserId = models.ForeignKey('User', on_delete=models.CASCADE)
+    # review content
+    ReviewCont = models.TextField('ReviewCont')
+    # review date
+    ReviewDate = models.DateField(auto_now_add=True)
+    # rating cannot be null can be a number of 1-5 and with a 0.5
+    Rating = models.DecimalField('Rating', null=False, max_digits=4, decimal_places=1)
+
+    # change the defalut name of the table
+    class Meta:
+        db_table = 'Review'
+
+class CoBk(models.Model):
+    CoId = models.ForeignKey('Collection',on_delete=models.CASCADE)
+    BkId = models.ForeignKey('Book',on_delete=models.CASCADE)
+
+    # change the defalut name of the table
+    class Meta:
+        db_table = 'CoBk'

@@ -41,6 +41,7 @@
     <connection id="b2aa77ef-c5d6-494e-b3cc-4c77955c8026" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="b2aa77ef-c5d6-494e-b3cc-4c77955c8026" dataset="django_mysql.User" active-filter-id="" />
     <filter-actions connection-id="b2aa77ef-c5d6-494e-b3cc-4c77955c8026" dataset="django_mysql.django_content_type" active-filter-id="" />
     <filter-actions connection-id="b2aa77ef-c5d6-494e-b3cc-4c77955c8026" dataset="testdb.testtable" active-filter-id="" />
     <filter-actions connection-id="b2aa77ef-c5d6-494e-b3cc-4c77955c8026" dataset="django_mysql.student" active-filter-id="" />
