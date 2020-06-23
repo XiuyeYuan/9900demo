@@ -26,6 +26,7 @@
     <loaded-nodes>
       <connection connection-id="b2aa77ef-c5d6-494e-b3cc-4c77955c8026">
         <schema name="django_mysql" object-types="dataset trigger, table, constraint, view, procedure, index, column, function" />
+        <schema name="testdb" object-types="table, view" />
       </connection>
     </loaded-nodes>
   </component>

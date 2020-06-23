@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
+    'login',
 ]
 
 MIDDLEWARE = [
@@ -78,13 +79,14 @@ WSGI_APPLICATION = 'mysites.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_mysql',			#数据库名称
-        'USER': 'root',       		#名字
-        'PASSWORD': 'wxc123wxc',       #密码
-        'HOST': 'localhost',		#可以不写，默认的
-        'PORT': '3306'				#可以不写，默认的
+        'NAME': 'django_mysql',
+        'USER': 'root',
+        'PASSWORD': 'wxc123wxc',
+        'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
+#python manage.py runserver
 
 
 
