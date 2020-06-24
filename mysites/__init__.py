@@ -9,6 +9,7 @@ cursor = db.cursor()
 
 cursor.execute('SELECT VERSION()')
 data = cursor.fetchone()
-print('DATABASE VERSION IS: %s' % data)
+#test database
+#print('DATABASE VERSION IS: %s' % data)
 
 db.close()

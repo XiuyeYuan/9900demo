@@ -5,7 +5,7 @@ from django.db import models
 
 class User(models.Model):
     # userid
-    UserId = models.IntegerField('UserId', primary_key=True)
+    UserId = models.AutoField('UserId', primary_key=True)
     # username
     UserName = models.CharField('UserName', unique=True,max_length=15)
     # password
@@ -20,7 +20,7 @@ class User(models.Model):
 
 class Book(models.Model):
     # Bookid
-    BkId = models.IntegerField('Bkid', primary_key=True)
+    BkId = models.AutoField('Bkid', primary_key=True)
     # Book Title(name)
     BkTitle = models.CharField('BkTitle', max_length=15)
     # Book Author(s)
@@ -42,7 +42,7 @@ class Book(models.Model):
 
 class Collection(models.Model):
     # collectionId
-    CoId = models.IntegerField('CoId', primary_key=True)
+    CoId = models.AutoField('CoId', primary_key=True)
     # collection Name set by the owner
     CoName = models.CharField('CoName', max_length=15)
     # owner --foreign key of user
@@ -58,7 +58,7 @@ class Collection(models.Model):
 
 class Review(models.Model):
     # review id
-    ReviewId = models.IntegerField('ReviewId', primary_key=True)
+    ReviewId = models.AutoField('ReviewId', primary_key=True)
     # book id --foreign key of table 'Book'
     BkId = models.ForeignKey('Book', on_delete=models.CASCADE)
     # user id --foreign key of table 'User'

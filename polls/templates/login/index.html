@@ -9,24 +9,24 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="{% static 'login/css/login.css' %}" rel="stylesheet"/>
-    <title>login</title>
+    <title>登录</title>
   </head>
   <body>
     <div class="container">
             <div class="col">
               <form class="form-login" action="/login/" method="post">
-                  <h3 class="text-center">Welcome</h3>
+                  <h3 class="text-center">Welcome to ReadRecommend</h3>
                   <div class="form-group">
-                    <label for="id_username">Username:</label>
+                    <label for="id_username">Username: </label>
                     <input type="text" name='username' class="form-control" id="id_username" placeholder="Username" autofocus required>
                   </div>
                   <div class="form-group">
-                    <label for="id_password">Password:</label>
+                    <label for="id_password">Password: </label>
                     <input type="password" name='password' class="form-control" id="id_password" placeholder="Password" required>
                   </div>
                   <div>
-                  <a href="/register/" class="text-success "><ins>Regist</ins></a>
-                  <button type="submit" class="btn btn-primary float-right">sign on</button>
+                  <a href="/regist/" class="text-success "><ins>Regist Now!</ins></a>
+                  <button type="submit" class="btn btn-primary float-right">Sign On</button>
                   </div>
               </form>
             </div>
