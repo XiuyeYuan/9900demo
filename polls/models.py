@@ -75,6 +75,7 @@ class Review(models.Model):
         db_table = 'Review'
 
 class CoBk(models.Model):
+    #two foreign keys
     CoId = models.ForeignKey('Collection',on_delete=models.CASCADE)
     BkId = models.ForeignKey('Book',on_delete=models.CASCADE)
 

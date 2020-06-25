@@ -6,11 +6,22 @@ from django.shortcuts import redirect
 from . import models
 
 
-# Create your views here.
-
-
+#functions to check the input and interact with database
 def index(request):
-    pass
+    if request.method == 'POST':
+        #get the info from POST request
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        #create user object
+        user_ob = models.User.objects.get(UserName=username)
+        #TODO 判空
+
+        if user_ob.Password == password:
+            #password right login success!
+            return render(request, 'login/loginsuccess.html')
+        else:
+            #password wrong login fail!
+            return render(request, 'login/loginfail.html')
     return render(request, 'login/index.html')
 
 
@@ -25,7 +36,7 @@ def regist(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        # input check start #TODO
+        # input check start #TODO 判空
         # if username.strip() and password:
         #     print('aa')
 
@@ -38,11 +49,19 @@ def regist(request):
 
         # save the change to the database
         User_ob.save()
-        print(User_ob)#test
+        print(User_ob)  # test
 
         return render(request, 'login/regist.html')
     return render(request, 'login/regist.html')
 
-# def logout(request):
-#     pass
-#     return redirect("/login/")
+def logout(request):
+    pass
+    return redirect("/login/")
+
+def loginsuccess(request):
+    pass
+    return redirect("/loginsuccess/")
+
+def loginfail(request):
+    pass
+    return redirect("/loginfail/")

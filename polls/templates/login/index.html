@@ -14,7 +14,8 @@
   <body>
     <div class="container">
             <div class="col">
-              <form class="form-login" action="/login/" method="post">
+              <form class="form-login" action="/index/" method="post">
+                  {% csrf_token %}
                   <h3 class="text-center">Welcome to ReadRecommend</h3>
                   <div class="form-group">
                     <label for="id_username">Username: </label>
