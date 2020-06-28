@@ -31,7 +31,13 @@
               </form>
             </div>
     </div> <!-- /container -->
-
+    {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg }}');
+            {% endfor %}
+        </script>
+    {% endif %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     {#    以下三者的引用顺序是固定的#}

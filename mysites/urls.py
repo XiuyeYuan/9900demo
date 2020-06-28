@@ -22,7 +22,10 @@ urlpatterns = [
     path('index/', views.index),
     path('login/', views.login),
     path('regist/', views.regist),
-    path('loginsuccess/',views.loginsuccess),
-    path('loginfail/',views.loginfail),
-    #path('logout/', views.logout),
+    path('loginsuccess/', views.loginsuccess),
+    path('createCo/', views.createcollection),
+    path('deleteCo/', views.deleteCollection),
+    path('profile/', views.profileview),
+
+    # path('logout/', views.logout),
 ]

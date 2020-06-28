@@ -9,12 +9,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="{% static 'login/css/login.css' %}" rel="stylesheet"/>
-    <title>登录</title>
+    <title>Index Page</title>
   </head>
   <body>
     <div class="container">
             <div class="col">
-              <form class="form-login" action="/index/" method="post">
+              <form class="form-login" action="" method="post">
                   {% csrf_token %}
                   <h3 class="text-center">Welcome to ReadRecommend</h3>
                   <div class="form-group">
@@ -32,7 +32,13 @@
               </form>
             </div>
     </div> <!-- /container -->
-
+    {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg }}');
+            {% endfor %}
+        </script>
+    {% endif %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     {#    以下三者的引用顺序是固定的#}
